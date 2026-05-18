@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gene Manager App</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <h1>Gene Manager Dashboard</h1>
+
+            <button class="primary-btn" onclick="clearForm()">
+                New Entry
+            </button>
+        </header>
+
+        <!-- Stats -->
+        <section class="stats">
+
+            <div class="stat-box">
+                <h2 id="totalGenes">0</h2>
+                <p>Total Genes</p>
+            </div>
+
+            <div class="stat-box">
+                <h2 id="proteinCount">0</h2>
+                <p>Protein Coding</p>
+            </div>
+
+            <div class="stat-box">
+                <h2 id="organismCount">0</h2>
+                <p>Organisms</p>
+            </div>
+
+        </section>
+
+        <!-- Form Section -->
+        <section class="card">
+
+            <h2>Add / Edit Gene</h2>
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Gene Name</label>
+                    <input type="text" id="geneName" placeholder="Enter gene name">
+                </div>
+
+                <div>
+                    <label>Organism</label>
+                    <input type="text" id="organism" placeholder="Human / Mouse">
+                </div>
+
+                <div>
+                    <label>Gene Type</label>
+
+                    <select id="geneType">
+                        <option value="Protein Coding">Protein Coding</option>
+                        <option value="RNA">RNA</option>
+                        <option value="Regulatory">Regulatory</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Expression Level</label>
+                    <input type="number" id="expression" placeholder="Expression value">
+                </div>
+
+                <div class="full-width">
+                    <label>DNA Sequence</label>
+
+                    <textarea id="sequence" rows="4"
+                        placeholder="Enter DNA sequence"></textarea>
+                </div>
+
+                <div class="full-width">
+                    <button class="primary-btn" onclick="saveGene()">
+                        Save Gene
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Search -->
+        <section class="search-box">
+
+            <input type="text"
+                id="searchInput"
+                placeholder="Search gene..."
+                onkeyup="renderGenes()">
+
+        </section>
+
+        <!-- Gene Cards -->
+        <section class="gene-list" id="geneList"></section>
+
+    </div>
+
+    <!-- External JS -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
